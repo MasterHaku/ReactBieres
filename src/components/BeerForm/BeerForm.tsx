@@ -35,33 +35,38 @@ class BeerForm extends Component<BeerFormProps, BeerFormState> {
   render() {
     const { name, type } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} className="mb-4 flex flex-col items-center space-y-4">
-        <div className="mb-2">
-          <label className="block text-sm font-medium text-center">
-            Beer Name:
-            <input 
-              type="text" 
-              name="name" 
-              value={name} 
-              onChange={this.handleChange} 
-              required 
-              className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-center"
-            />
-          </label>
+      <form onSubmit={this.handleSubmit} className="flex flex-col items-center space-y-4">
+        {/* Champs de formulaire côte à côte */}
+        <div className="flex space-x-4">
+          <div className="mb-2">
+            <label className="block text-sm font-medium text-center">
+              <input 
+                type="text" 
+                name="name" 
+                value={name} 
+                onChange={this.handleChange}
+                placeholder='Beer Name' 
+                required 
+                className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-center"
+              />
+            </label>
+          </div>
+          <div className="mb-2">
+            <label className="block text-sm font-medium text-center">
+              <input 
+                type="text" 
+                name="type" 
+                value={type} 
+                onChange={this.handleChange} 
+                required 
+                placeholder='Beer Type'
+                className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-center"
+              />
+            </label>
+          </div>
         </div>
-        <div className="mb-2">
-          <label className="block text-sm font-medium text-center">
-            Beer Type:
-            <input 
-              type="text" 
-              name="type" 
-              value={type} 
-              onChange={this.handleChange} 
-              required 
-              className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-center"
-            />
-          </label>
-        </div>
+        
+        {/* Bouton en dessous */}
         <button 
           type="submit" 
           className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600"
