@@ -1,81 +1,73 @@
 import React, { Component } from 'react';
-import BeerForm from '../BeerForm/BeerForm'; // Assurez-vous que le chemin est correct
+import BeerForm from '../BeerForm/BeerForm';
 
 interface Beer {
   name: string;
   type: string;
+  rating: number;
 }
 
 interface BeerListState {
   beers: Beer[];
 }
 
-export default class BeerList extends Component<{}, BeerListState> {
+class BeerList extends Component<{}, BeerListState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      beers: [
-        { name: 'Guinness', type: 'Stout' },
-        { name: 'Heineken', type: 'Lager' },
-        { name: 'Sierra Nevada', type: 'IPA' },
-      ],
+      beers: [],
     };
   }
 
-  addBeer = (name: string, type: string) => {
+  handleAddBeer = (name: string, type: string, rating: number) => {
     this.setState((prevState) => ({
-      beers: [...prevState.beers, { name, type }],
+      beers: [...prevState.beers, { name, type, rating }]
     }));
   };
 
-  deleteBeer = (index: number) => {
+  handleDeleteBeer = (index: number) => {
     this.setState((prevState) => ({
-      beers: prevState.beers.filter((_, i) => i !== index),
+      beers: prevState.beers.filter((_, i) => i !== index)
     }));
   };
 
   render() {
     const { beers } = this.state;
-
     return (
-      <div className="flex flex-col items-center p-4">
-        
+      <div className="flex flex-col items-center">
+        <BeerForm onAddBeer={this.handleAddBeer} />
 
-        {/* Formulaire centré */}
-        <BeerForm onAddBeer={this.addBeer} />
-
-        
-
-        {/* Tableau de bières centré */}
-        <div className="flex flex-col w-full max-w-md mt-8 items-center">
-        <h1 className="text-2xl font-bold mb-4">Toutes nos bières</h1>
-          <table className="min-w-full bg-white border border-gray-300">
-            <thead>
-              <tr className="bg-gray-200 items-center">
-                <th className="py-2 px-4 border">Name</th>
-                <th className="py-2 px-4 border">Type</th>
-                <th className="py-2 px-4 border">Actions</th>
+        {/* Tableau des bières */}
+        <table className="table-auto mt-8 min-w-full text-center border-collapse">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border px-4 py-2">Name</th>
+              <th className="border px-4 py-2">Type</th>
+              <th className="border px-4 py-2">Rating</th>
+              <th className="border px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {beers.map((beer, index) => (
+              <tr key={index} className="bg-white">
+                <td className="border px-4 py-2">{beer.name}</td>
+                <td className="border px-4 py-2">{beer.type}</td>
+                <td className="border px-4 py-2">{beer.rating}/5</td>
+                <td className="border px-4 py-2">
+                  <button 
+                    onClick={() => this.handleDeleteBeer(index)} 
+                    className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {beers.map((beer, index) => (
-                <tr key={index} className="hover:bg-gray-100 items-center">
-                  <td className="py-2 px-4 border">{beer.name}</td>
-                  <td className="py-2 px-4 border">{beer.type}</td>
-                  <td className="py-2 px-4 border">
-                    <button 
-                      onClick={() => this.deleteBeer(index)} 
-                      className="text-red-500 hover:underline"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
 }
+
+export default BeerList;
