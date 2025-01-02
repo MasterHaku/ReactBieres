@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Repertoire de bières
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Introduction
 
-In the project directory, you can run:
+Ce projet rentre dans le cadre de l'UE WE du Master IL (M1). <p><p/>Il a pour but de réaliser une application web en ReactJS.
+Ce projet a été réalisé par Hoel Girard en 2024
 
-### `npm start`
+### Détails
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Cette application a été réalisée en React, avec TailwindCSS pour les styles.<p><p/>
+Elle permet de creer une liste de bieres personnalisées avec plusieurs parametres, comme le type, la note ou encore le nom. L'application contiuent aussi une page "About", qui donne quelques "details" supplementaires.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Lancer l'application
 
-### `npm test`
+#### Cloner le depot git 
+> git clone [repo]
+#### Lancer les commandes d'installation:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ ##### Installation des dependences necessaires
+ > npm install
+ 
+ ##### Lancer l'application
+ > npm start
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ ### Note:
+<i>Le projet a été developpé en React 18.3.1, TailwindCSS 3.4.14 et TypeScript 4.9.5. A noter qu'a la compilation, l'invite de commande expose des depreciations dans les modules, merci de les ignorer (certes, c'est pas safe)<i/>.
